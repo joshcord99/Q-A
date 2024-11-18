@@ -1,6 +1,6 @@
 # QABuddy
 <!-- Insert Gif Here -->
-![]()
+![](https://github.com/joshcord99/QABuddy/blob/main/client/src/assets/Screenshot%202024-11-18%20at%2012.30.52%E2%80%AFPM.png)
 
 ## Description
 This project demonstrates the implementation of a Continuous Integration (CI) and Continuous Deployment (CD) pipeline using GitHub Actions.
