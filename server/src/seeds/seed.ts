@@ -1,14 +1,18 @@
-import db from "../config/connection.js";
-import Question from "../models/Question.js";
-import cleanDB from "./cleanDb.js";
+import models from '../models/index.js';
+import db from '../config/connection.js';
 
-import pythonQuestions from './pythonQuestions.json' assert { type: "json" };
+export default async (modelName: "Question", collectionName: string) => {
+  try {
+    if (models[modelName].db.db) {
+      let modelExists = await models[modelName].db.db.listCollections({
+        name: collectionName
+      }).toArray()
 
-db.once('open', async () => {
-  await cleanDB('Question', 'questions');
-
-  await Question.insertMany(pythonQuestions);
-
-  console.log('Questions seeded!');
-  process.exit(0);
-});
+      if (modelExists.length) {
+        await db.dropCollection(collectionName);
+      }
+    }
+  } catch (err) {
+    throw err;
+  }
+}
