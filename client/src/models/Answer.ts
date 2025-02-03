@@ -1,4 +1,1 @@
-export interface Answer {
-  text: string;
-  isCorrect: boolean;
-}
+export type { Answer } from "../../../shared/types/Question.js";
